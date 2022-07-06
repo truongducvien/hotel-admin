@@ -1,0 +1,20 @@
+.roomManagement{
+
+   .backHomeButton{
+      height: 35px;
+      position: absolute;
+      top: 206px;
+      right: 30px;
+      padding: 5px;
+      background-color: #026082;
+      color: white;
+      line-height: 25px;
+   }
+   .backHomeButton:hover{
+      background-color: #026d94;
+   }
+
+   table{
+      font-size: 80%;
+   }
+}

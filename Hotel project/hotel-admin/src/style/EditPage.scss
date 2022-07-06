@@ -1,0 +1,73 @@
+.editPage{
+
+   .editForm{
+      position: relative;
+      
+      form{
+         display: flex;
+         justify-content: space-evenly;
+         flex-wrap: wrap;
+         padding: 20px;
+   
+         .form-group{
+            outline: 1px dashed black;
+            width: 350px;
+            height: 80px;
+         }
+      }
+
+      .imageForm{
+         width: 800px;
+         height: fit-content;
+         padding: 10px;
+         margin: 0 auto;
+         border-radius: 11px;
+         box-shadow: 1px 1px 6px 1px #80808033;
+
+         .image-group{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            height: fit-content;
+            padding: 0 20px;
+            margin: auto;
+      
+            .image{
+               width: 100px;
+               height: 100px;
+               overflow: hidden;
+               margin: 10px;
+      
+               img{
+                  height: 100%;
+               }
+            }
+         }
+         .imageLinkInput{
+            
+            input{
+               display: inline-block;
+               width: 700px;
+               margin: 0 10px;
+               border: unset;
+               border-bottom: 1px solid grey;
+            }
+            input:focus{
+               outline: unset;
+            }
+            button{
+               width: 60px;
+               background-color: #026082;
+               border: unset;
+               color: white;
+            }
+            button:hover{
+               cursor: pointer;
+               background-color: #006d95;
+            }
+         }
+      }
+   }
+}

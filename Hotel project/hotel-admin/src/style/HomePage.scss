@@ -1,0 +1,22 @@
+.homePage{
+   margin-top: 30px;
+   width: 400px;
+   margin: auto;
+   display: flex;
+   justify-content: space-evenly;
+
+   .button1, .button2{
+      width: 180px;
+      height: 40px;
+      padding: 10px;
+      margin: 20px;
+      box-shadow: 1px 1px 4px 2px rgba(128, 128, 128, 0.734);
+      color: #026082;
+      line-height: 20px;
+      font-weight: 600;
+      transition: all .2s linear;
+   }
+   .button1:hover, .button2:hover{
+      transform: scale(1.05);
+   }
+}
