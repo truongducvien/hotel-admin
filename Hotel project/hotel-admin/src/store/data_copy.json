@@ -82,5 +82,13 @@
             "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/478050/478050/3..jpg"
          ]
       }
-   ]
+   ],
+
+   "users": [
+      {"username": "ducvien", "email": "truongducvien@gmail.com"},
+      {"username": "cvin.trng", "email": "cvin.trng@gmail.com"}
+
+   ],
+
+   "orderedList": []
 }

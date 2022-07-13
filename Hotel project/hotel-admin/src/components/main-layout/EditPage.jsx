@@ -1,17 +1,22 @@
 import { useState, useEffect } from "react";
 import { useLocation, NavLink } from "react-router-dom"
 
-import '../style/EditPage.scss';
+import '../../style/EditPage.scss';
+import { API, API_URL } from "../../api/constAPI";
+
 
 export default function EditPage () {
    const location = useLocation();
    const roomInfo = location.state;
+   const roomDataUrl = `${API_URL}/roomList`
 
    const [roomInfoChange, setRoomInfoChange] = useState(roomInfo)
    const [newRoomInfoChange, setNewRoomInfoChange] = useState({...roomInfoChange})
    const [newImageLink, setNewImageLink] = useState('')
+   const [isSaved, setIsSaved] = useState(true)
 
    const handleChange = (type, value) => {
+      setIsSaved(false)
       switch (type){
          case 'id':
             setNewRoomInfoChange({...newRoomInfoChange, id: value });
@@ -51,8 +56,24 @@ export default function EditPage () {
       setNewImageLink('')
    }
 
-   const handleRoomInfoChange = () => {
+   const handleDeleteImage = (index) => {
+      const imageList = [...newRoomInfoChange.imageUrl]
+      imageList.splice(index, 1)
+      setNewRoomInfoChange(state=> (
+         {...state, imageUrl: imageList}
+      ))
+      setIsSaved(false)
+   }
 
+   const handleSaveChange = () => {
+      setRoomInfoChange(newRoomInfoChange)
+      API.patch(roomDataUrl, newRoomInfoChange.id, newRoomInfoChange)
+      setIsSaved(true)
+   }
+
+   const handleReset = () => {
+      setNewRoomInfoChange(roomInfo)
+      setIsSaved(true)
    }
 
    useEffect(() => {
@@ -154,6 +175,9 @@ export default function EditPage () {
                   {newRoomInfoChange.imageUrl.map((link, index) => (
                      <div className="image" key={index}>
                         <img style={{height: '80px'}} src={link} alt=''/>
+                        <div className="deleteButton">
+                           <i onClick={()=>handleDeleteImage(index)} className="fa-solid fa-circle-xmark"></i>
+                        </div>
                      </div>
                   ))}
                </div>
@@ -166,10 +190,15 @@ export default function EditPage () {
                      onChange={e => setNewImageLink(e.target.value)}
                      value={newImageLink}
                   />
-                  <button onClick={handleAddImage}>Add</button>
+                  <button
+                     onClick={handleAddImage}
+                     disabled={newImageLink===""? true: false}
+                  >Add</button>
                </div>
-
             </div>
+
+            <button onClick={handleSaveChange}>Save</button>
+            <button disabled={isSaved} onClick={handleReset}>Reset</button>
          </div>
       </div>
    )

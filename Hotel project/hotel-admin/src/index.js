@@ -4,11 +4,33 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { configureStore } from '@reduxjs/toolkit'
+import { Provider } from 'react-redux'
+import createSagaMiddleware from '@redux-saga/core';
+
+// import { roomReducer } from './store/reducer'
+import { roomReducer } from './store/slices/roomSlice';
+import rootSaga from './store/saga/rootSaga';
+
+const sagaMiddleware = createSagaMiddleware()
+const middleware = [sagaMiddleware]
+
+const store = configureStore({
+  reducer: {
+    roomReducer: roomReducer
+  },
+  middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), ...middleware]
+})
+
+sagaMiddleware.run(rootSaga)
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <>
+  <Provider store={store}>
     <App />
-  </>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
