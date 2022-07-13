@@ -1,5 +1,5 @@
-import TextCollapsed from '../components/TextCollapsed'
-import ImageCarousel from '../components/ImageCarousel';
+import TextCollapsed from './TextCollapsed'
+import ImageCarousel from './ImageCarousel';
 import { NavLink} from 'react-router-dom';
 import { Space } from 'antd'
 

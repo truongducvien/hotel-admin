@@ -35,13 +35,28 @@
             margin: auto;
       
             .image{
-               width: 100px;
+               position: relative;
+               width: 110px;
                height: 100px;
-               overflow: hidden;
-               margin: 10px;
+               margin: 15px;
       
                img{
-                  height: 100%;
+                  height: 100px;
+               }
+
+               .deleteButton{
+                  font-size: 20px;
+                  position: absolute;
+                  top: -13px;
+                  right: -20px;
+                  color: #026082;
+
+                  i:hover{
+                     color: #005777;
+                     cursor: pointer;
+                     transform: scale(1.08);
+                     transition: all .1s linear;
+                  }
                }
             }
          }
