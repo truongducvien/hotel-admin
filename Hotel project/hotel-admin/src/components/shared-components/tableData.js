@@ -3,6 +3,8 @@ import ImageCarousel from './ImageCarousel';
 import { NavLink} from 'react-router-dom';
 import { Space } from 'antd'
 
+import FormButton from './FormButton';
+
 export const columns = [
    {
       title: 'Index',
@@ -62,9 +64,13 @@ export const columns = [
       key: 'action',
       render: (_, record) => (
          <Space size="middle">
-            <NavLink to='./edit' state={record}>Edit</NavLink>
-            <span>Delete</span>
+            <FormButton record={record}/>
+            
+            {/* <NavLink to='edit' state={record}>Edit</NavLink>
+
+            <span onClick={() => handleDelete(record)}>Delete</span> */}
          </Space>
       ),
    },
 ];
+

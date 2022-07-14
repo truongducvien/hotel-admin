@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects'
+import { call, delay, put, takeEvery } from 'redux-saga/effects'
 import { 
    fetchRoomDataAction,
    fetchRoomDataSuccess
@@ -16,6 +16,7 @@ function getRoomListFromAPI () {
 function* fetchRoomData () {
    try{
       const data = yield call(getRoomListFromAPI)
+      yield delay(400)
       yield put(fetchRoomDataSuccess(data))
    }catch (e) {
       console.log("Error: ", e)

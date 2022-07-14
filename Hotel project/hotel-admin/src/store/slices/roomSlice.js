@@ -18,6 +18,20 @@ const roomSlice = createSlice({
       },
       fetchRoomDataFail(state, action){
          
+      },
+      updateRoomInfo ( state, action){
+         state.roomList.forEach( (item, index) => {
+            if( item.id === action.payload.id){
+               state.roomList.splice(index, 1, action.payload)
+            }
+         })
+      },
+      deleteRoom (state, action) {
+         state.roomList.forEach( (item, index) => {
+            if( item.id === action.payload){
+               state.roomList.splice(index, 1)
+            }
+         })
       }
    }
 })
@@ -25,7 +39,9 @@ const roomSlice = createSlice({
 export const {
    fetchRoomDataAction,
    fetchRoomDataSuccess,
-   fetchRoomDataFail
+   fetchRoomDataFail,
+   updateRoomInfo,
+   deleteRoom
 } = roomSlice.actions;
 
 export const roomReducer = roomSlice.reducer;

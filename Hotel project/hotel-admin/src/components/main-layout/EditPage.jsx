@@ -1,52 +1,74 @@
 import { useState, useEffect } from "react";
 import { useLocation, NavLink } from "react-router-dom"
+import { useSelector, useDispatch } from 'react-redux'
+
+import { fetchRoomDataAction, updateRoomInfo } from "../../store/slices/roomSlice";
 
 import '../../style/EditPage.scss';
 import { API, API_URL } from "../../api/constAPI";
+import EditForm from "./EditForm";
 
 
 export default function EditPage () {
    const location = useLocation();
-   const roomInfo = location.state;
-   const roomDataUrl = `${API_URL}/roomList`
+   const roomId = location.state.id;
+   const roomDataUrl = `${API_URL}/roomList`;
+   
+   // get room Info from API
+   const roomsDispatch = useDispatch() 
+   
+   useEffect(()=> {
+      roomsDispatch(fetchRoomDataAction())
+   }, [])
+   
+   const roomList = useSelector( state => state.roomReducer.roomList)
+   const isLoading = useSelector(state => state.roomReducer.isLoading)
 
-   const [roomInfoChange, setRoomInfoChange] = useState(roomInfo)
-   const [newRoomInfoChange, setNewRoomInfoChange] = useState({...roomInfoChange})
+
+   const [roomInfoChange, setRoomInfoChange] = useState({})
    const [newImageLink, setNewImageLink] = useState('')
    const [isSaved, setIsSaved] = useState(true)
+
+   useEffect(()=>{
+      if(roomList){
+         const roomInfo = roomList.filter( item => item.id === roomId)
+         setRoomInfoChange(...roomInfo)
+      }
+   },[roomList])
+
+   useEffect(()=> {
+      console.log('rendered');
+   })
 
    const handleChange = (type, value) => {
       setIsSaved(false)
       switch (type){
-         case 'id':
-            setNewRoomInfoChange({...newRoomInfoChange, id: value });
-            break;
          case 'nameRoom':
-            setNewRoomInfoChange({...newRoomInfoChange, nameRoom: value });
+            setRoomInfoChange({...roomInfoChange, nameRoom: value });
             break;
          case 'price':
-            setNewRoomInfoChange({...newRoomInfoChange, price: value });
+            setRoomInfoChange({...roomInfoChange, price: value });
             break;
          case 'quantity':
-            setNewRoomInfoChange({...newRoomInfoChange, quantity: value });
+            setRoomInfoChange({...roomInfoChange, quantity: value });
             break;
          case 'maxPerson':
-            setNewRoomInfoChange({...newRoomInfoChange, maxPerson: value });
+            setRoomInfoChange({...roomInfoChange, maxPerson: value });
             break;
          case 'bed':
-            setNewRoomInfoChange({...newRoomInfoChange, bed: value });
+            setRoomInfoChange({...roomInfoChange, bed: value });
             break;
          case 'bathrooms':
-            setNewRoomInfoChange({...newRoomInfoChange, bathrooms: value });
+            setRoomInfoChange({...roomInfoChange, bathrooms: value });
             break;
          case 'convenient':
-            setNewRoomInfoChange({...newRoomInfoChange, convenient: value });
+            setRoomInfoChange({...roomInfoChange, convenient: value });
             break;
          case 'introduction':
-            setNewRoomInfoChange({...newRoomInfoChange, introduction: value });
+            setRoomInfoChange({...roomInfoChange, introduction: value });
             break;
          case 'imageUrl':
-            setNewRoomInfoChange({...newRoomInfoChange, imageUrl: [...newRoomInfoChange.imageUrl,value] });
+            setRoomInfoChange({...roomInfoChange, imageUrl: [...roomInfoChange.imageUrl,value] });
             break;
       }
    }
@@ -57,149 +79,50 @@ export default function EditPage () {
    }
 
    const handleDeleteImage = (index) => {
-      const imageList = [...newRoomInfoChange.imageUrl]
+      const imageList = [...roomInfoChange.imageUrl]
       imageList.splice(index, 1)
-      setNewRoomInfoChange(state=> (
+      setRoomInfoChange(state=> (
          {...state, imageUrl: imageList}
       ))
       setIsSaved(false)
    }
 
    const handleSaveChange = () => {
-      setRoomInfoChange(newRoomInfoChange)
-      API.patch(roomDataUrl, newRoomInfoChange.id, newRoomInfoChange)
+      roomsDispatch(updateRoomInfo(roomInfoChange))
+      API.patch(roomDataUrl, roomInfoChange.id, roomInfoChange)
       setIsSaved(true)
    }
 
    const handleReset = () => {
-      setNewRoomInfoChange(roomInfo)
+      if(roomList){
+         const roomInfo = roomList.filter( item => item.id === roomId)
+         setRoomInfoChange(...roomInfo)
+      }
       setIsSaved(true)
    }
-
-   useEffect(() => {
-      console.log(newRoomInfoChange);
-   }, [newRoomInfoChange])
 
 
    return (
       <div className="editPage">
-         <NavLink to='/room_management'>Back to Room list</NavLink>
+         <NavLink className='backToRomListButton' to='/room_management'>Back to Room list</NavLink>
 
-         <div className="editForm">
-            <form action=""> 
-               
-               <div className="form-group">
-                  <span>Id: </span>
-                  <input 
-                     type="text" 
-                     value={newRoomInfoChange.id}
-                     onChange={(e) => handleChange('id', e.target.value)}
-                  />
-               </div>
+         {isLoading? (
+            <span>Loading ...</span>
+         ):(
+            roomInfoChange && roomInfoChange.id &&
+            <div className="editForm">
+               <EditForm roomInfoChange={roomInfoChange} 
+                  handleChange={handleChange} 
+                  handleDeleteImage={handleDeleteImage}
+                  setNewImageLink={setNewImageLink}
+                  newImageLink={newImageLink}
+                  handleAddImage={handleAddImage}
+               />
 
-               <div className="form-group">
-                  <span>Room name: </span>
-                  <input 
-                     type="text" 
-                     value={newRoomInfoChange.nameRoom}
-                     onChange={(e) => handleChange('nameRoom', e.target.value)}
-                  />
-               </div>
-
-               <div className="form-group">
-                  <span>Price: </span>
-                  <input 
-                     type="text" 
-                     value={newRoomInfoChange.price}
-                     onChange={(e) => handleChange('price', e.target.value)}
-                  />
-               </div>
-
-               <div className="form-group">
-                  <span>Room available: </span>
-                  <input 
-                     type="text" 
-                     value={newRoomInfoChange.quantity}
-                     onChange={(e) => handleChange('quantity', e.target.value)}
-                  />
-               </div>
-
-               <div className="form-group">
-                  <span>Maximum guests: </span>
-                  <input 
-                     type="text" 
-                     value={newRoomInfoChange.maxPerson}
-                     onChange={(e) => handleChange('maxPerson', e.target.value)}
-                  />
-               </div>
-
-               <div className="form-group">
-                  <span>Bed: </span>
-                  <input 
-                     type="text" 
-                     value={newRoomInfoChange.bed}
-                     onChange={(e) => handleChange('bed', e.target.value)}
-                  />
-               </div>
-
-               <div className="form-group">
-                  <span>Bathrooms: </span>
-                  <input 
-                     type="text" 
-                     value={newRoomInfoChange.bathrooms}
-                     onChange={(e) => handleChange('bathrooms', e.target.value)}
-                  />
-               </div>
-
-               <div className="form-group">
-                  <span>Convenient: </span>
-                  <input 
-                     type="text" 
-                     value={newRoomInfoChange.convenient}
-                     onChange={(e) => handleChange('convenient', e.target.value)}
-                  />
-               </div>
-
-               <div className="form-group">
-                  <span>Introduction: </span>
-                  <input 
-                     type="text" 
-                     value={newRoomInfoChange.introduction}
-                     onChange={(e) => handleChange('introduction', e.target.value)}
-                  />
-               </div>
-            </form>
-
-            <div className="imageForm">
-               <div className="image-group">
-                  {newRoomInfoChange.imageUrl.map((link, index) => (
-                     <div className="image" key={index}>
-                        <img style={{height: '80px'}} src={link} alt=''/>
-                        <div className="deleteButton">
-                           <i onClick={()=>handleDeleteImage(index)} className="fa-solid fa-circle-xmark"></i>
-                        </div>
-                     </div>
-                  ))}
-               </div>
-
-               <div className='imageLinkInput'>
-                  <input 
-                     id='enterImageLinkInput'
-                     type="text"
-                     placeholder='Enter image URL here ...'
-                     onChange={e => setNewImageLink(e.target.value)}
-                     value={newImageLink}
-                  />
-                  <button
-                     onClick={handleAddImage}
-                     disabled={newImageLink===""? true: false}
-                  >Add</button>
-               </div>
+               <button className="button" disabled={isSaved} onClick={handleSaveChange}>Save</button>
+               <button className="button" disabled={isSaved} onClick={handleReset}>Reset</button>
             </div>
-
-            <button onClick={handleSaveChange}>Save</button>
-            <button disabled={isSaved} onClick={handleReset}>Reset</button>
-         </div>
+         )}
       </div>
    )
 }
