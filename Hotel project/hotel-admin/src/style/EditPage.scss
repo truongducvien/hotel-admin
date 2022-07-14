@@ -1,19 +1,94 @@
 .editPage{
+   position: relative;
+   padding: 20px;
+
+   .backToRomListButton{
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      background-color: #026082;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 2px;
+      font-size: 11px;
+   }
+   .backToRomListButton:hover{
+      background-color: #01678d;
+   }
+   .backToRomListButton:active{
+      background-color: #00739d;
+   }
 
    .editForm{
       position: relative;
-      
+      width: 80vw;
+      margin: auto;
+
       form{
          display: flex;
          justify-content: space-evenly;
          flex-wrap: wrap;
+         width: 100%;
+         margin: 20px auto;
          padding: 20px;
+         background-color: #8fb9db3b;
+         border-radius: 6px;
+         box-shadow: 1px 1px 6px 1px #80808096;
    
          .form-group{
-            outline: 1px dashed black;
-            width: 350px;
-            height: 80px;
+            position: relative;
+            flex-basis: 31%;
+            height: 40px;
+            padding: 5px 10px;
+            display: flex;
+            justify-content:center;
+
+            span{
+               padding: 3px;
+               margin-right: 5px;
+               text-align: left;
+            }
+            input{
+               width: 45%;
+               border: unset;
+               text-align: center;
+               background-color: #f6f5f5;
+               box-shadow: 1px 1px 6px 1px #80808096;
+            }
+            input:focus{
+               outline: unset;
+               background-color: white;
+            }
          }
+         .roomName{
+            flex-basis: 100%;
+
+            input{
+               width: 84%;
+            }
+         }
+         .bed, .bathrooms{
+            flex-basis: 47%;
+            input{
+               width: 75%;
+            }
+         }
+         .convenient, .introduction{
+            display: block;
+            flex-basis: 100%;
+            width: fit-content;
+            height: fit-content;
+            textarea{
+               border: unset;
+               background-color: #f6f5f5;
+               box-shadow: 1px 1px 6px 1px #80808096;
+            }
+            textarea:focus{
+               background-color: white;
+               outline: unset
+            }
+         }
+         
       }
 
       .imageForm{
@@ -21,8 +96,9 @@
          height: fit-content;
          padding: 10px;
          margin: 0 auto;
-         border-radius: 11px;
-         box-shadow: 1px 1px 6px 1px #80808033;
+         background-color: #8fb9db3b;
+         border-radius: 6px;
+         box-shadow: 1px 1px 6px 1px #80808096;
 
          .image-group{
             position: relative;
@@ -51,6 +127,11 @@
                   right: -20px;
                   color: #026082;
 
+                  i{
+                     border-radius: 50%;
+                     background-color: white;
+                  }
+                  
                   i:hover{
                      color: #005777;
                      cursor: pointer;
@@ -67,7 +148,7 @@
                width: 700px;
                margin: 0 10px;
                border: unset;
-               border-bottom: 1px solid grey;
+               
             }
             input:focus{
                outline: unset;
@@ -80,9 +161,37 @@
             }
             button:hover{
                cursor: pointer;
-               background-color: #006d95;
+               background-color: #01688e;
+            }
+            button:active{
+               background-color: #0276a1;
+            }
+            button:disabled{
+               color: grey;
+               background-color: rgb(223, 223, 223);
             }
          }
+      }
+      .button{
+         width: 100px;
+         border: unset;
+         padding: 5px;
+         margin: 20px;
+         color: white;
+         background-color: #026082;
+         box-shadow: 1px 1px 4px 1px #8080808c;
+      }
+      .button:hover{
+         cursor: pointer;
+         background-color: #01688e;
+      }
+      .button:active{
+         background-color: #0276a1;
+      }
+      .button:disabled{
+         cursor: unset;
+         color: grey;
+         background-color: rgb(223, 223, 223);
       }
    }
 }
