@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, NavLink } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 
-import { fetchRoomDataAction, updateRoomInfo } from "../../store/slices/roomSlice";
+import { updateRoomInfo } from "../../store/slices/roomSlice";
 
 import '../../style/EditPage.scss';
 import { API, API_URL } from "../../api/constAPI";
@@ -14,31 +14,26 @@ export default function EditPage () {
    const roomId = location.state.id;
    const roomDataUrl = `${API_URL}/roomList`;
    
-   // get room Info from API
    const roomsDispatch = useDispatch() 
-   
-   useEffect(()=> {
-      roomsDispatch(fetchRoomDataAction())
-   }, [])
    
    const roomList = useSelector( state => state.roomReducer.roomList)
    const isLoading = useSelector(state => state.roomReducer.isLoading)
-
-
+   
    const [roomInfoChange, setRoomInfoChange] = useState({})
    const [newImageLink, setNewImageLink] = useState('')
    const [isSaved, setIsSaved] = useState(true)
+   
+   // useEffect(()=>{
+   //    if(roomList){
+   //       const roomInfo = roomList.filter( item => item.id === roomId)
+   //       setRoomInfoChange(...roomInfo)
+   //    }
+   // },[roomList])
 
-   useEffect(()=>{
-      if(roomList){
-         const roomInfo = roomList.filter( item => item.id === roomId)
-         setRoomInfoChange(...roomInfo)
-      }
-   },[roomList])
-
-   useEffect(()=> {
-      console.log('rendered');
-   })
+   // If reload page, re-call API:
+   useEffect(() => {
+      API.get(`${roomDataUrl}/${roomId}`).then(res => setRoomInfoChange(res.data))
+   },[])
 
    const handleChange = (type, value) => {
       setIsSaved(false)
@@ -94,9 +89,14 @@ export default function EditPage () {
    }
 
    const handleReset = () => {
-      if(roomList){
-         const roomInfo = roomList.filter( item => item.id === roomId)
-         setRoomInfoChange(...roomInfo)
+      if (roomList){
+         //If reload page, roomList will be empty, re-call API to get the room data:
+         if (roomList.length != 0){
+            const roomInfo = roomList.filter( item => item.id === roomId)
+            setRoomInfoChange(...roomInfo)
+         } else{
+            API.get(`${roomDataUrl}/${roomId}`).then(res => setRoomInfoChange(res.data))
+         }
       }
       setIsSaved(true)
    }

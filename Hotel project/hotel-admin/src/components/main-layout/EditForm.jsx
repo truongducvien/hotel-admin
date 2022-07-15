@@ -1,3 +1,5 @@
+import '../../style/EditForm.scss'
+
 export default function EditForm ({
    roomInfoChange, 
    handleChange, 
@@ -23,7 +25,7 @@ export default function EditForm ({
                <div className="form-group">
                   <span>Price: </span>
                   <input 
-                     type="text" 
+                     type="text"
                      value={roomInfoChange.price}
                      onChange={(e) => handleChange('price', e.target.value)}
                   />
@@ -32,7 +34,7 @@ export default function EditForm ({
                <div className="form-group">
                   <span>Room available: </span>
                   <input 
-                     type="text" 
+                     type="number" 
                      value={roomInfoChange.quantity}
                      onChange={(e) => handleChange('quantity', e.target.value)}
                   />
@@ -41,7 +43,7 @@ export default function EditForm ({
                <div className="form-group">
                   <span>Maximum guests: </span>
                   <input 
-                     type="text" 
+                     type="number" 
                      value={roomInfoChange.maxPerson}
                      onChange={(e) => handleChange('maxPerson', e.target.value)}
                   />
