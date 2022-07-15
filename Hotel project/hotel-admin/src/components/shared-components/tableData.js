@@ -10,6 +10,7 @@ export const columns = [
       title: 'Index',
       dataIndex: 'key',
       key: 'index',
+      render: (item, obj, index) => (index + 1)
    },
    {
       title: 'Room Name',
@@ -65,10 +66,6 @@ export const columns = [
       render: (_, record) => (
          <Space size="middle">
             <FormButton record={record}/>
-            
-            {/* <NavLink to='edit' state={record}>Edit</NavLink>
-
-            <span onClick={() => handleDelete(record)}>Delete</span> */}
          </Space>
       ),
    },
