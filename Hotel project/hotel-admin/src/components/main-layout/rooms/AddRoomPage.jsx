@@ -80,13 +80,14 @@ export default function AddRoomPage (){
 
    const handleSaveChange = () => {
       roomsDispatch(addNewRoom(roomInfoChange))
-      API.post(roomDataUrl, roomInfoChange)
-      setIsSaved(true)
+      API.post(roomDataUrl, roomInfoChange);
+      setIsSaved(true);
+      setRoomInfoChange({...initialRoomState});
    }
 
    const handleReset = () => {
-      setRoomInfoChange({...initialRoomState})
-      setIsSaved(true)
+      setRoomInfoChange({...initialRoomState});
+      setIsSaved(true);
    }
    
 
