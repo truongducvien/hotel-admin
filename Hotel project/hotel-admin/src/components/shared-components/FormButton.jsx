@@ -8,12 +8,12 @@ import { API, API_URL } from "../../api/constAPI"
 
 export default function FormButton ({ record }){
    const dispatch = useDispatch()
-   const roomList = useSelector( state => state.roomReducer.roomList)
+   const rooms = useSelector( state => state.roomReducer.rooms)
    
    const handleDelete = (record) => {
       if(window.confirm(`Are you sure to delete "${record.nameRoom}"?`)){
          dispatch(deleteRoom(record.id))
-         API.delete(`${API_URL}/roomList/`, record.id)
+         API.delete(`${API_URL}/rooms/`, record.id)
       }
    }
    

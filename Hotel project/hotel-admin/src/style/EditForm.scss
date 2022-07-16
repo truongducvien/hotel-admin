@@ -95,8 +95,14 @@ form{
          height: 100px;
          margin: 15px;
 
-         img{
-            height: 100px;
+         .image-container{
+            width: 120px;
+            height: 80px;
+            overflow: hidden;
+
+            img{
+               height: 80px;
+            }
          }
 
          .deleteButton{
@@ -127,10 +133,11 @@ form{
          width: 700px;
          margin: 0 10px;
          border: unset;
-         
+         background-color: #f6f5f5;
       }
       input:focus{
          outline: unset;
+         background-color: white;
       }
       button{
          width: 60px;

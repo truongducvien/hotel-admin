@@ -46,13 +46,13 @@ export const columns = [
       title: 'Convenient',
       dataIndex: 'convenient',
       key: 'convenient',
-      render: ( text => <TextCollapsed text={text} />)
+      render: ( text => text.length > 250? <TextCollapsed text={text} /> : text)
    },
    {
       title: 'Introduction',
       dataIndex: 'introduction',
       key: 'introduction',
-      render: ( text => <TextCollapsed text={text} />)
+      render: ( text => text.length > 250? <TextCollapsed text={text} /> : text)
    },
    {
       title: 'Image',
