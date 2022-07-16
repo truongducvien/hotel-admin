@@ -1,37 +1,40 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-   roomList: [],
+   rooms: [],
    isLoading: false
 }
 
 const roomSlice = createSlice({
-   name: 'roomList',
+   name: 'rooms',
    initialState,
    reducers: {
       fetchRoomDataAction(state, action){
          state.isLoading = true;
       },
       fetchRoomDataSuccess(state, action){
-         state.roomList = action.payload;
+         state.rooms = action.payload;
          state.isLoading = false;
       },
       fetchRoomDataFail(state, action){
          
       },
       updateRoomInfo ( state, action){
-         state.roomList.forEach( (item, index) => {
+         state.rooms.forEach( (item, index) => {
             if( item.id === action.payload.id){
-               state.roomList.splice(index, 1, action.payload)
+               state.rooms.splice(index, 1, action.payload)
             }
          })
       },
       deleteRoom (state, action) {
-         state.roomList.forEach( (item, index) => {
+         state.rooms.forEach( (item, index) => {
             if( item.id === action.payload){
-               state.roomList.splice(index, 1)
+               state.rooms.splice(index, 1)
             }
          })
+      },
+      addNewRoom (state, action) {
+         state.rooms = [...state.rooms, action.payload]
       }
    }
 })
@@ -41,7 +44,8 @@ export const {
    fetchRoomDataSuccess,
    fetchRoomDataFail,
    updateRoomInfo,
-   deleteRoom
+   deleteRoom,
+   addNewRoom
 } = roomSlice.actions;
 
 export const roomReducer = roomSlice.reducer;

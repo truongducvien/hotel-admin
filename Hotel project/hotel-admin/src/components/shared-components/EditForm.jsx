@@ -92,7 +92,9 @@ export default function EditForm ({
                <div className="image-group">
                   {roomInfoChange.imageUrl.map((link, index) => (
                      <div className="image" key={index}>
-                        <img style={{height: '80px'}} src={link} alt=''/>
+                        <div className='image-container'>
+                           <img src={link} alt=''/>
+                        </div>
                         <div className="deleteButton">
                            <i onClick={()=>handleDeleteImage(index)} className="fa-solid fa-circle-xmark"></i>
                         </div>

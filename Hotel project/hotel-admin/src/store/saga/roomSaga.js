@@ -6,17 +6,17 @@ import {
 
 import { API_URL } from '../../api/constAPI'
 
-const RoomDataURL = `${API_URL}/roomList`
+const RoomDataURL = `${API_URL}/rooms`
 
 
-function getRoomListFromAPI () {
+function getRoomsFromAPI () {
    return fetch(RoomDataURL).then( res => res.json())
 }
 
 function* fetchRoomData () {
    try{
-      const data = yield call(getRoomListFromAPI)
-      yield delay(400)
+      const data = yield call(getRoomsFromAPI)
+      yield delay(1000)
       yield put(fetchRoomDataSuccess(data))
    }catch (e) {
       console.log("Error: ", e)
@@ -25,4 +25,4 @@ function* fetchRoomData () {
 
 export function* roomSaga () {
    yield takeEvery(fetchRoomDataAction, fetchRoomData)
-}
+} 

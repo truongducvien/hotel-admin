@@ -1,5 +1,5 @@
 {
-  "roomList": [
+  "rooms": [
     {
       "id": 1,
       "key": 1,
@@ -26,7 +26,7 @@
       "nameRoom": "2 Bedrooms Apartment – 85m2",
       "price": 3141964,
       "quantity": 5,
-      "maxPerson": 3,
+      "maxPerson": "9",
       "bed": "1 Single bed and 1 King bed",
       "bathrooms": "2 Bathrooms",
       "convenient": "85m² • Pool view • Non-smoking • Kitchen • Wireless Internet • Iron/Ironing board • Air conditioned • Laundry Facilities • Room Safe • Tea/Coffee Maker • Room Service • Daily Room Service • Fridge • DVD Player • Mini Bar • Balcony • Telephone • Bathrobes Provided • Microwave • Television • Hairdryer • Heating • Alarm Clock",
@@ -84,5 +84,9 @@
       "email": "cvin.trng@gmail.com"
     }
   ],
-  "orderedList": []
+  "orders": [
+    {
+      "user":"vien"
+    }
+  ]
 }
