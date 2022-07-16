@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { API, API_URL } from "../../api/constAPI";
 
 const initialState = {
    rooms: [],
@@ -20,13 +21,16 @@ const roomSlice = createSlice({
          
       },
       updateRoomInfo ( state, action){
+         const roomInfoChange = action.payload;
+         API.patch(`${API_URL}/rooms/`, roomInfoChange.id, roomInfoChange)
          state.rooms.forEach( (item, index) => {
-            if( item.id === action.payload.id){
-               state.rooms.splice(index, 1, action.payload)
+            if( item.id === roomInfoChange.id){
+               state.rooms.splice(index, 1, roomInfoChange)
             }
          })
       },
       deleteRoom (state, action) {
+         API.delete(`${API_URL}/rooms/`, action.payload);
          state.rooms.forEach( (item, index) => {
             if( item.id === action.payload){
                state.rooms.splice(index, 1)

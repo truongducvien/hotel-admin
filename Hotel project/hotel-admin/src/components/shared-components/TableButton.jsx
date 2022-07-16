@@ -13,7 +13,6 @@ export default function TableButton ({ record }){
    const handleDelete = (record) => {
       if(window.confirm(`Are you sure to delete "${record.nameRoom}"?`)){
          dispatch(deleteRoom(record.id))
-         API.delete(`${API_URL}/rooms/`, record.id)
       }
    }
 

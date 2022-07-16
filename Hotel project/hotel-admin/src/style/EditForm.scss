@@ -153,6 +153,7 @@ form{
          background-color: #0276a1;
       }
       button:disabled{
+         cursor: not-allowed;
          color: grey;
          background-color: rgb(223, 223, 223);
       }

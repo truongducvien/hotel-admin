@@ -88,7 +88,6 @@ export default function EditPage () {
 
    const handleSaveChange = () => {
       roomDispatch(updateRoomInfo(roomInfoChange))
-      API.patch(roomDataUrl, roomInfoChange.id, roomInfoChange)
       setIsSaved(true)
    }
 
@@ -108,7 +107,6 @@ export default function EditPage () {
    const handleDeleteRoom = () => {
       if(window.confirm(`Are you sure to delete "${roomName}"?`)){
          roomDispatch(deleteRoom(roomId))
-         API.delete(`${API_URL}/rooms/`, roomId)
       }
       navigate(-1)
    }
