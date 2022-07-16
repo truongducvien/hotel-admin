@@ -3,7 +3,7 @@ import ImageCarousel from './ImageCarousel';
 import { NavLink} from 'react-router-dom';
 import { Space } from 'antd'
 
-import FormButton from './FormButton';
+import TableButton from './TableButton';
 
 export const columns = [
    {
@@ -65,7 +65,7 @@ export const columns = [
       key: 'action',
       render: (_, record) => (
          <Space size="middle">
-            <FormButton record={record}/>
+            <TableButton record={record}/>
          </Space>
       ),
    },

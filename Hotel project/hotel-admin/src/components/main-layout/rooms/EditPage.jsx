@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { useLocation, NavLink } from "react-router-dom"
+import { useLocation, NavLink, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 import { Space, Spin } from 'antd'
 
-import { updateRoomInfo } from "../../../store/slices/roomSlice";
+import { updateRoomInfo, deleteRoom } from "../../../store/slices/roomSlice";
 
 import '../../../style/EditPage.scss';
 import { API, API_URL } from "../../../api/constAPI";
@@ -12,11 +12,13 @@ import EditForm from "../../shared-components/EditForm";
 
 
 export default function EditPage () {
+   const navigate = useNavigate();
    const location = useLocation();
    const roomId = location.state.id;
+   const roomName = location.state.nameRoom;
    const roomDataUrl = `${API_URL}/rooms`;
    
-   const roomsDispatch = useDispatch() 
+   const roomDispatch = useDispatch() 
    
    const rooms = useSelector( state => state.roomReducer.rooms)
    const isLoading = useSelector(state => state.roomReducer.isLoading)
@@ -85,7 +87,7 @@ export default function EditPage () {
    }
 
    const handleSaveChange = () => {
-      roomsDispatch(updateRoomInfo(roomInfoChange))
+      roomDispatch(updateRoomInfo(roomInfoChange))
       API.patch(roomDataUrl, roomInfoChange.id, roomInfoChange)
       setIsSaved(true)
    }
@@ -103,6 +105,15 @@ export default function EditPage () {
       setIsSaved(true)
    }
 
+   const handleDeleteRoom = () => {
+      if(window.confirm(`Are you sure to delete "${roomName}"?`)){
+         roomDispatch(deleteRoom(roomId))
+         API.delete(`${API_URL}/rooms/`, roomId)
+      }
+      navigate(-1)
+   }
+
+   window.onload = () => {setIsSaved(false)}
 
    return (
       <>
@@ -112,7 +123,6 @@ export default function EditPage () {
             </NavLink>
          </div>
          <div className="editPage">
-            {/* <NavLink className='backToRomListButton' to='/room_management'>Back to Room list</NavLink> */}
 
             {isLoading? (
                <>
@@ -135,6 +145,7 @@ export default function EditPage () {
 
                   <button className="button" disabled={isSaved} onClick={handleSaveChange}>Save</button>
                   <button className="button" disabled={isSaved} onClick={handleReset}>Reset</button>
+                  <button className="button" onClick={handleDeleteRoom}>Delete</button>
                </div>
             )}
          </div>
