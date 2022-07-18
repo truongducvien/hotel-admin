@@ -3,7 +3,7 @@ import { useLocation, NavLink, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 import { Space, Spin } from 'antd'
 
-import { updateRoomInfo, deleteRoom } from "../../../store/slices/roomSlice";
+import { updateRoomTypeInfo, deleteRoomType } from "../../../store/slices/roomSlice";
 
 import '../../../style/EditPage.scss';
 import { API, API_URL } from "../../../api/constAPI";
@@ -14,36 +14,31 @@ import EditForm from "../../shared-components/EditForm";
 export default function EditPage () {
    const navigate = useNavigate();
    const location = useLocation();
-   const roomId = location.state.id;
-   const roomName = location.state.nameRoom;
+   const roomTypeId = location.state.id;
+   const roomTypeName = location.state.typeRoom;
    const roomDataUrl = `${API_URL}/rooms`;
    
    const roomDispatch = useDispatch() 
    
-   const rooms = useSelector( state => state.roomReducer.rooms)
+   const roomTypes = useSelector( state => state.roomReducer.rooms)
    const isLoading = useSelector(state => state.roomReducer.isLoading)
-   
-   const [roomInfoChange, setRoomInfoChange] = useState({})
-   const [newImageLink, setNewImageLink] = useState('')
-   const [isSaved, setIsSaved] = useState(true)
-   
-   // useEffect(()=>{
-   //    if(rooms){
-   //       const roomInfo = rooms.filter( item => item.id === roomId)
-   //       setRoomInfoChange(...roomInfo)
-   //    }
-   // },[rooms])
 
+   const [isSaved, setIsSaved] = useState(true);
+   
+   const [roomInfoChange, setRoomInfoChange] = useState({});
+   const [newImageLink, setNewImageLink] = useState('');
+   
+   
    // If reload page, re-call API:
    useEffect(() => {
-      API.get(`${roomDataUrl}/${roomId}`).then(res => setRoomInfoChange(res.data))
+      API.get(`${roomDataUrl}/${roomTypeId}`).then(res => setRoomInfoChange(res.data))
    },[])
 
    const handleChange = (type, value) => {
       setIsSaved(false)
       switch (type){
-         case 'nameRoom':
-            setRoomInfoChange({...roomInfoChange, nameRoom: value });
+         case 'typeRoom':
+            setRoomInfoChange({...roomInfoChange, typeRoom: value });
             break;
          case 'price':
             setRoomInfoChange({...roomInfoChange, price: value });
@@ -67,7 +62,10 @@ export default function EditPage () {
             setRoomInfoChange({...roomInfoChange, introduction: value });
             break;
          case 'imageUrl':
-            setRoomInfoChange({...roomInfoChange, imageUrl: [...roomInfoChange.imageUrl,value] });
+            setRoomInfoChange({...roomInfoChange, imageUrl: [...roomInfoChange.imageUrl, value] });
+            break;
+         case 'newRoom':
+            setRoomInfoChange({...roomInfoChange, roomsList: [...roomInfoChange.roomsList, value] });
             break;
       }
    }
@@ -78,37 +76,49 @@ export default function EditPage () {
    }
 
    const handleDeleteImage = (index) => {
-      const imageList = [...roomInfoChange.imageUrl]
-      imageList.splice(index, 1)
+      const newImageList = [...roomInfoChange.imageUrl]
+      newImageList.splice(index, 1)
       setRoomInfoChange(state=> (
-         {...state, imageUrl: imageList}
+         {...state, imageUrl: newImageList}
       ))
       setIsSaved(false)
    }
 
+   const deleteRoom = (roomIdArray) => {
+      const newRoomsList = roomInfoChange.roomsList.filter( item => !roomIdArray.includes(item.id))
+      setRoomInfoChange(state=> (
+         {...state, roomsList: newRoomsList}
+      ))
+      setIsSaved(false)
+   }
+
+   const addNewRoom = (newRoom) => {
+      handleChange('newRoom', newRoom);
+   }
+
    const handleSaveChange = () => {
-      roomDispatch(updateRoomInfo(roomInfoChange))
+      roomDispatch(updateRoomTypeInfo(roomInfoChange))
       setIsSaved(true)
    }
 
    const handleReset = () => {
-      if (rooms){
+      if (roomTypes){
          //If reload page, rooms will be empty, re-call API to get the room data:
-         if (rooms.length != 0){
-            const roomInfo = rooms.filter( item => item.id === roomId)
+         if (roomTypes.length != 0){
+            const roomInfo = roomTypes.filter( item => item.id === roomTypeId)
             setRoomInfoChange(...roomInfo)
          } else{
-            API.get(`${roomDataUrl}/${roomId}`).then(res => setRoomInfoChange(res.data))
+            API.get(`${roomDataUrl}/${roomTypeId}`).then(res => setRoomInfoChange(res.data))
          }
       }
       setIsSaved(true)
    }
 
-   const handleDeleteRoom = () => {
-      if(window.confirm(`Are you sure to delete "${roomName}"?`)){
-         roomDispatch(deleteRoom(roomId))
+   const handleDeleteRoomType = () => {
+      if(window.confirm(`Are you sure to delete "${roomTypeName}"?`)){
+         roomDispatch(deleteRoomType(roomTypeId))
+         navigate(-1)
       }
-      navigate(-1)
    }
 
    window.onload = () => {setIsSaved(false)}
@@ -135,15 +145,19 @@ export default function EditPage () {
                   <EditForm 
                      roomInfoChange={roomInfoChange} 
                      handleChange={handleChange} 
+
                      handleDeleteImage={handleDeleteImage}
                      setNewImageLink={setNewImageLink}
                      newImageLink={newImageLink}
                      handleAddImage={handleAddImage}
+
+                     deleteRoom={deleteRoom}
+                     addNewRoom={addNewRoom}
                   />
 
                   <button className="button" disabled={isSaved} onClick={handleSaveChange}>Save</button>
                   <button className="button" disabled={isSaved} onClick={handleReset}>Reset</button>
-                  <button className="button" onClick={handleDeleteRoom}>Delete</button>
+                  <button className="button" onClick={handleDeleteRoomType}>Delete</button>
                </div>
             )}
          </div>

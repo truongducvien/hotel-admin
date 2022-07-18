@@ -3,7 +3,7 @@ import { useEffect } from "react"
 import '../../style/TableButton.scss'
 
 import { useDispatch, useSelector } from "react-redux/es/exports"
-import { deleteRoom } from '../../store/slices/roomSlice'
+import { deleteRoomType } from '../../store/slices/roomSlice'
 import { API, API_URL } from "../../api/constAPI"
 
 export default function TableButton ({ record }){
@@ -12,7 +12,7 @@ export default function TableButton ({ record }){
    
    const handleDelete = (record) => {
       if(window.confirm(`Are you sure to delete "${record.nameRoom}"?`)){
-         dispatch(deleteRoom(record.id))
+         dispatch(deleteRoomType(record.id))
       }
    }
 

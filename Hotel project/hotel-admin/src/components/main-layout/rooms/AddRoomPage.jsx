@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import '../../../style/AddRoomPage.scss'
 
 import { useDispatch } from "react-redux";
-import { addNewRoom } from "../../../store/slices/roomSlice";
+import { addNewRoomType } from "../../../store/slices/roomSlice";
 import { API, API_URL } from "../../../api/constAPI";
 
 import EditForm from "../../shared-components/EditForm";
@@ -12,7 +12,7 @@ import EditForm from "../../shared-components/EditForm";
 const initialRoomState = {
    id: uuidv4(),
    key: uuidv4(),
-   nameRoom: '',
+   typeRoom: '',
    price: '',
    quantity: '',
    maxPerson: '',
@@ -20,7 +20,8 @@ const initialRoomState = {
    bathrooms: '',
    convenient: '',
    introduction: '',
-   imageUrl: []
+   imageUrl: [],
+   roomsList: []
 }
 
 export default function AddRoomPage (){
@@ -34,8 +35,8 @@ export default function AddRoomPage (){
    const handleChange = (type, value) => {
       setIsSaved(false)
       switch (type){
-         case 'nameRoom':
-            setRoomInfoChange({...roomInfoChange, nameRoom: value });
+         case 'typeRoom':
+            setRoomInfoChange({...roomInfoChange, typeRoom: value });
             break;
          case 'price':
             setRoomInfoChange({...roomInfoChange, price: value });
@@ -61,6 +62,9 @@ export default function AddRoomPage (){
          case 'imageUrl':
             setRoomInfoChange({...roomInfoChange, imageUrl: [...roomInfoChange.imageUrl,value] });
             break;
+         case 'newRoom':
+            setRoomInfoChange({...roomInfoChange, roomsList: [...roomInfoChange.roomsList, value] });
+            break;
       }
    }
 
@@ -78,8 +82,20 @@ export default function AddRoomPage (){
       setIsSaved(false)
    }
 
+   const deleteRoom = (roomIdArray) => {
+      const newRoomsList = roomInfoChange.roomsList.filter( item => !roomIdArray.includes(item.id))
+      setRoomInfoChange(state=> (
+         {...state, roomsList: newRoomsList}
+      ))
+      setIsSaved(false)
+   }
+
+   const addNewRoom = (newRoom) => {
+      handleChange('newRoom', newRoom);
+   }
+
    const handleSaveChange = () => {
-      roomsDispatch(addNewRoom(roomInfoChange))
+      roomsDispatch(addNewRoomType(roomInfoChange))
       API.post(roomDataUrl, roomInfoChange);
       setIsSaved(true);
       setRoomInfoChange({...initialRoomState});
@@ -89,7 +105,8 @@ export default function AddRoomPage (){
       setRoomInfoChange({...initialRoomState});
       setIsSaved(true);
    }
-   
+
+   window.onload = () => {setIsSaved(false)}
 
    return (
       <>
@@ -103,10 +120,14 @@ export default function AddRoomPage (){
                <EditForm 
                   roomInfoChange={roomInfoChange} 
                   handleChange={handleChange} 
+
                   handleDeleteImage={handleDeleteImage}
                   setNewImageLink={setNewImageLink}
                   newImageLink={newImageLink}
                   handleAddImage={handleAddImage}
+
+                  deleteRoom={deleteRoom}
+                  addNewRoom={addNewRoom}
                />
 
                <button className="button" disabled={isSaved} onClick={handleSaveChange}>Save</button>

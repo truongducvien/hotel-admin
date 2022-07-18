@@ -10,7 +10,7 @@ export default function ImageCarousel ( {imageLinks} ) {
    
    if(imageLinks && imageLinks.length>0){
       return (
-         <div style={{width: "100px", height: "fit-content"}}>
+         <div style={{width: "100px"}}>
             <Carousel autoplay>
                {imageLinks.map((link, index) => (
                   <div key={index}>

@@ -12,9 +12,9 @@ export const columns = [
       render: (item, obj, index) => (index + 1)
    },
    {
-      title: 'Room Name',
-      dataIndex: 'nameRoom',
-      key: 'name',
+      title: 'Room Type',
+      dataIndex: 'typeRoom',
+      key: 'type',
    },
    {
       title: 'Price',
@@ -22,7 +22,7 @@ export const columns = [
       key: 'price',
    },
    {
-      title: 'Rooms Available',
+      title: 'Rooms Quantity',
       dataIndex: 'quantity',
       key: 'quantity',
    },
