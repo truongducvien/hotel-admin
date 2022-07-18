@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import 'antd/dist/antd.css';
 
 import HomePage from './components/main-layout/HomePage';
-import RoomManagement from './components/shared-components/RoomManagement';
+import RoomManagement from './components/main-layout/rooms/RoomManagement';
 import EditPage from './components/main-layout/rooms/EditPage';
 import AddRoomPage from './components/main-layout/rooms/AddRoomPage';
 

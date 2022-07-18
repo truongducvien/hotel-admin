@@ -96,10 +96,18 @@ export default function EditPage () {
       handleChange('newRoom', newRoom);
    }
 
+   // Update room quantity when roomsList changed:
+   useEffect(()=> {
+      if(roomInfoChange.roomsList){
+         handleChange('quantity', roomInfoChange.roomsList.length)
+      }
+   }, [roomInfoChange.roomsList])
+
    const handleSaveChange = () => {
       roomDispatch(updateRoomTypeInfo(roomInfoChange))
       setIsSaved(true)
    }
+   
 
    const handleReset = () => {
       if (roomTypes){

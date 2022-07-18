@@ -306,7 +306,7 @@
       "key": "d0c243c9-bda7-4adf-9ac0-8beab6cdb85c",
       "typeRoom": "VIP",
       "price": "123456",
-      "quantity": "3",
+      "quantity": 4,
       "maxPerson": "9",
       "bed": "4",
       "bathrooms": "5",
@@ -333,6 +333,12 @@
           "id": "3af3af41-0468-4b24-a163-deeecceb7b68",
           "key": "2c041d30-8efe-435a-8b6d-477575cc5912",
           "roomName": "VIP03",
+          "bookedDay": []
+        },
+        {
+          "id": "5740a9dd-829c-431e-b230-1851cdbc40b0",
+          "key": "6eea1512-2b6b-4e05-b6a1-9e94809bad19",
+          "roomName": "VIP04",
           "bookedDay": []
         }
       ]
