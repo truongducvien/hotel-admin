@@ -29,7 +29,7 @@ export default function RoomManagement () {
          </div>
       
          <div className='roomManagement'>
-            <NavLink className='addNewRoomButton' to='new'>Add new room</NavLink>
+            <NavLink className='addNewRoomButton' to='new'>Add new room type</NavLink>
             
             {isLoading? (
                <>

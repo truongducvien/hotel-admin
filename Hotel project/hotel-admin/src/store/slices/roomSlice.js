@@ -20,7 +20,8 @@ const roomSlice = createSlice({
       fetchRoomDataFail(state, action){
          
       },
-      updateRoomInfo ( state, action){
+      
+      updateRoomTypeInfo ( state, action){
          const roomInfoChange = action.payload;
          API.patch(`${API_URL}/rooms/`, roomInfoChange.id, roomInfoChange)
          state.rooms.forEach( (item, index) => {
@@ -29,7 +30,7 @@ const roomSlice = createSlice({
             }
          })
       },
-      deleteRoom (state, action) {
+      deleteRoomType (state, action) {
          API.delete(`${API_URL}/rooms/`, action.payload);
          state.rooms.forEach( (item, index) => {
             if( item.id === action.payload){
@@ -37,7 +38,7 @@ const roomSlice = createSlice({
             }
          })
       },
-      addNewRoom (state, action) {
+      addNewRoomType (state, action) {
          state.rooms = [...state.rooms, action.payload]
       }
    }
@@ -47,9 +48,9 @@ export const {
    fetchRoomDataAction,
    fetchRoomDataSuccess,
    fetchRoomDataFail,
-   updateRoomInfo,
-   deleteRoom,
-   addNewRoom
+   updateRoomTypeInfo,
+   deleteRoomType,
+   addNewRoomType
 } = roomSlice.actions;
 
 export const roomReducer = roomSlice.reducer;
