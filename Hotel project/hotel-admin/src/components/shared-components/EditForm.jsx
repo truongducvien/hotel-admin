@@ -22,7 +22,12 @@ export default function EditForm ({
       id: uuid(),
       key: uuid(),
       roomName: '',
-      bookedDay: []
+      bookedDay: [],
+      roomStatus: 'available',
+      currentBooking: {
+         bookingId: '',
+         userFullName: ''
+      }
    });
 
    const handleCheckBoxChange = (e) => {

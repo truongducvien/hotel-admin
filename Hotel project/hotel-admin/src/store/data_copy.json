@@ -3,7 +3,7 @@
       {
          "id": 1,
          "key": 1,
-         "nameRoom": "1 Bedroom Luxury Apartment",
+         "roomName": "1 Bedroom Luxury Apartment",
          "price": 2443749,
          "quantity": 3,
          "maxPerson": 4,
@@ -25,7 +25,7 @@
       {
          "id": 2,
          "key": 2,
-         "nameRoom": "2 Bedroom Apartment – 85m2",
+         "roomName": "2 Bedroom Apartment – 85m2",
          "price": 3141964,
          "quantity": 5,
          "maxPerson": 3,
@@ -45,7 +45,7 @@
       {
          "id": 3,
          "key": 3,
-         "nameRoom": "2 Bedroom Pool Villa",
+         "roomName": "2 Bedroom Pool Villa",
          "price": 6581428,
          "quantity": 5,
          "maxPerson": 6,
@@ -65,7 +65,7 @@
       {
          "id": 4,
          "key": 4,
-         "nameRoom": "3 Bedroom Pool Villa",
+         "roomName": "3 Bedroom Pool Villa",
          "price": 8081071,
          "quantity": 5,
          "maxPerson": 9,

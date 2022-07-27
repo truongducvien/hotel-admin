@@ -8,8 +8,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 import createSagaMiddleware from '@redux-saga/core';
 
-// import { roomReducer } from './store/reducer'
 import { roomReducer } from './store/slices/roomSlice';
+import { bookingReducer } from './store/slices/bookingSlice';
 import rootSaga from './store/saga/rootSaga';
 
 const sagaMiddleware = createSagaMiddleware()
@@ -17,7 +17,8 @@ const middleware = [sagaMiddleware]
 
 const store = configureStore({
   reducer: {
-    roomReducer: roomReducer
+    roomReducer: roomReducer,
+    bookingReducer: bookingReducer
   },
   middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), ...middleware]
 })

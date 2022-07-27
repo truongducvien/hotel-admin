@@ -24,31 +24,56 @@
           "id": "1a",
           "key": "1a",
           "roomName": "OS01",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "1b",
           "key": "1b",
           "roomName": "OS02",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "1c",
           "key": "1c",
           "roomName": "OS03",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "active",
+          "currentBooking": {
+            "bookingId": 4,
+            "userFullName": "a a"
+          }
         },
         {
           "id": "3cf8608d-7766-418a-a8aa-d38b047f5998",
           "key": "5f59d5ae-0b67-49fc-953a-d659a4474b95",
           "roomName": "OS04",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "active",
+          "currentBooking": {
+            "bookingId": 5,
+            "userFullName": "a a"
+          }
         },
         {
           "id": "d7173042-4b20-40c4-adf4-d6b3f84a8faa",
           "key": "b1fb61e4-84e3-4019-9255-7284b77a531b",
           "roomName": "OS05",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         }
       ]
     },
@@ -73,31 +98,56 @@
           "id": "2a",
           "key": "2a",
           "roomName": "OD01",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "2b",
           "key": "2b",
           "roomName": "OD02",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "2c",
           "key": "2c",
           "roomName": "OD03",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "2d",
           "key": "2d",
           "roomName": "OD04",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "active",
+          "currentBooking": {
+            "bookingId": 7,
+            "userFullName": "b b"
+          }
         },
         {
           "id": "2e",
           "key": "2e",
           "roomName": "OD05",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         }
       ]
     },
@@ -122,31 +172,56 @@
           "id": "3a",
           "key": "3a",
           "roomName": "GS01",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "3b",
           "key": "3b",
           "roomName": "GS02",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "3c",
           "key": "3c",
           "roomName": "GS03",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "3d",
           "key": "3d",
           "roomName": "GS04",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "active",
+          "currentBooking": {
+            "bookingId": 6,
+            "userFullName": "a a"
+          }
         },
         {
           "id": "3e",
           "key": "3e",
           "roomName": "GS05",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         }
       ]
     },
@@ -172,31 +247,56 @@
           "id": "4a",
           "key": "4a",
           "roomName": "PS01",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "4b",
           "key": "4b",
           "roomName": "PS02",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "4c",
           "key": "4c",
           "roomName": "PS03",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "4d",
           "key": "4d",
           "roomName": "PS04",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "4e",
           "key": "4e",
           "roomName": "PS05",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         }
       ]
     },
@@ -222,31 +322,63 @@
           "id": "5a",
           "key": "5a",
           "roomName": "BFV01",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "id": "5a",
+            "key": "5a",
+            "roomName": "BFV01",
+            "BookedDay": [],
+            "roomStatus": "available",
+            "currentBooking": {
+              "bookingId": "",
+              "userFullName": ""
+            }
+          }
         },
         {
           "id": "5b",
           "key": "5b",
           "roomName": "BFV02",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "5c",
           "key": "5c",
           "roomName": "BFV03",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "5d",
           "key": "5d",
           "roomName": "BFV04",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "5e",
           "key": "5e",
           "roomName": "BFV05",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         }
       ]
     },
@@ -273,31 +405,56 @@
           "id": "6a",
           "key": "6a",
           "roomName": "PV01",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "6b",
           "key": "6b",
           "roomName": "PV02",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "6c",
           "key": "6c",
           "roomName": "PV03",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "6d",
           "key": "6d",
           "roomName": "PV04",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "6e",
           "key": "6e",
           "roomName": "PV05",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         }
       ]
     },
@@ -306,7 +463,7 @@
       "key": "d0c243c9-bda7-4adf-9ac0-8beab6cdb85c",
       "typeRoom": "VIP",
       "price": "123456",
-      "quantity": 4,
+      "quantity": 6,
       "maxPerson": "9",
       "bed": "4",
       "bathrooms": "5",
@@ -321,25 +478,67 @@
           "id": "f08ff81c-3968-4edb-b186-4e296fb62532",
           "key": "3a87eb9a-507e-4525-8780-83443471945a",
           "roomName": "VIP01",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
           "id": "5326fbe1-e13a-4768-9918-ed211413251f",
           "key": "6dfe8ebc-d6dc-460a-b751-9d8137bc6cfe",
           "roomName": "VIP02",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
-          "id": "3af3af41-0468-4b24-a163-deeecceb7b68",
-          "key": "2c041d30-8efe-435a-8b6d-477575cc5912",
+          "id": "a47b1b48-70a3-482c-beca-1c6784eabfe3",
+          "key": "e042bd24-6acd-4fa1-98e9-a6037778c6f5",
           "roomName": "VIP03",
-          "bookedDay": []
+          "BookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         },
         {
-          "id": "5740a9dd-829c-431e-b230-1851cdbc40b0",
-          "key": "6eea1512-2b6b-4e05-b6a1-9e94809bad19",
+          "id": "6aec546d-b5bc-4dcf-9e28-46bc24553a72",
+          "key": "e089605c-6470-4e15-b531-e7bd2dfb12cc",
           "roomName": "VIP04",
-          "bookedDay": []
+          "bookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
+        },
+        {
+          "id": "b582ecc3-69b7-40db-ae64-7606f0624da6",
+          "key": "1b64e540-0910-4367-89ee-29feafde4a14",
+          "roomName": "VIP05",
+          "bookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
+        },
+        {
+          "id": "9fb7c706-5612-47a1-a25e-b4068f8e64f3",
+          "key": "7661e4ce-48bb-48e3-b2c5-6d64c8b4635d",
+          "roomName": "Special VIP",
+          "bookedDay": [],
+          "roomStatus": "available",
+          "currentBooking": {
+            "bookingId": "",
+            "userFullName": ""
+          }
         }
       ]
     }
@@ -354,9 +553,304 @@
       "email": "cvin.trng@gmail.com"
     }
   ],
-  "orders": [
+  "bookings": [
     {
-      "user": "vien"
+      "id": 1,
+      "userInfo": {
+        "id": 1,
+        "email": "a@a.com",
+        "firstName": "a",
+        "lastName": "a",
+        "phone": "8888888888",
+        "arrivalTime": "03:00 PM (15:00)",
+        "requests": ""
+      },
+      "date": {
+        "startDay": 1660798800000,
+        "endDay": 1660885140000
+      },
+      "nights": 1,
+      "options": [
+        {
+          "adult": 2,
+          "children": 0,
+          "id": "c8bad13e-fe51-4c2c-8cc7-5b532dce87d",
+          "typeRoomId": 1,
+          "typeRoom": "Ocean Suite",
+          "roomName": "",
+          "roomPrice": 2475000,
+          "status": "Checked-out"
+        }
+      ],
+      "payment": {
+        "method": "",
+        "payInfo": {
+          "cardNumber": "",
+          "nameOnCard": ""
+        }
+      }
+    },
+    {
+      "id": 2,
+      "userInfo": {
+        "id": 1,
+        "email": "a@a.com",
+        "firstName": "a",
+        "lastName": "a",
+        "phone": "8888888888",
+        "arrivalTime": "03:00 PM (15:00)",
+        "requests": ""
+      },
+      "date": {
+        "startDay": 1660798800000,
+        "endDay": 1660885140000
+      },
+      "nights": 1,
+      "options": [
+        {
+          "adult": 2,
+          "children": 0,
+          "id": "c8bad13e-fe51-4c2c-8cc7-5b532ce87d3",
+          "typeRoomId": 1,
+          "typeRoom": "Ocean Suite",
+          "roomName": "",
+          "roomPrice": 2475000,
+          "status": "Booked"
+        }
+      ],
+      "payment": {
+        "method": "",
+        "payInfo": {
+          "cardNumber": "",
+          "nameOnCard": ""
+        }
+      }
+    },
+    {
+      "id": 3,
+      "userInfo": {
+        "id": 1,
+        "email": "a@a.com",
+        "firstName": "a",
+        "lastName": "a",
+        "phone": "8888888888",
+        "arrivalTime": "03:00 PM (15:00)",
+        "requests": ""
+      },
+      "date": {
+        "startDay": 1660798800000,
+        "endDay": 1660885140000
+      },
+      "nights": 1,
+      "options": [
+        {
+          "adult": 2,
+          "children": 0,
+          "id": "92761d6c-1736-4b94-8315-20f68d6bf7ca",
+          "typeRoomId": 1,
+          "typeRoom": "Ocean Suite",
+          "roomName": "",
+          "roomPrice": 2475000,
+          "status": "Booked"
+        }
+      ],
+      "payment": {
+        "method": "",
+        "payInfo": {
+          "cardNumber": "",
+          "nameOnCard": ""
+        }
+      }
+    },
+    {
+      "id": 4,
+      "userInfo": {
+        "id": 1,
+        "email": "a@a.com",
+        "firstName": "a",
+        "lastName": "a",
+        "phone": "8888888888",
+        "arrivalTime": "03:00 PM (15:00)",
+        "requests": ""
+      },
+      "date": {
+        "startDay": 1660798800000,
+        "endDay": 1660885140000
+      },
+      "nights": 1,
+      "options": [
+        {
+          "adult": 2,
+          "children": 0,
+          "id": "9d899e1c-4dab-4c11-bdc2-d5b4bf5847fb",
+          "typeRoomId": 1,
+          "typeRoom": "Ocean Suite",
+          "roomName": "OS03",
+          "roomPrice": 2475000,
+          "status": "Checked-in"
+        }
+      ],
+      "payment": {
+        "method": "",
+        "payInfo": {
+          "cardNumber": "",
+          "nameOnCard": ""
+        }
+      }
+    },
+    {
+      "id": 5,
+      "userInfo": {
+        "id": 1,
+        "email": "a@a.com",
+        "firstName": "a",
+        "lastName": "a",
+        "phone": "8888888888",
+        "arrivalTime": "03:00 PM (15:00)",
+        "requests": ""
+      },
+      "date": {
+        "startDay": 1660798800000,
+        "endDay": 1660885140000
+      },
+      "nights": 1,
+      "options": [
+        {
+          "adult": 2,
+          "children": 0,
+          "id": "22c9d64f-9e84-427b-ab4c-8f2e293c6420",
+          "typeRoomId": 1,
+          "typeRoom": "Ocean Suite",
+          "roomName": "OS04",
+          "roomPrice": 2475000,
+          "status": "Checked-in"
+        }
+      ],
+      "payment": {
+        "method": "",
+        "payInfo": {
+          "cardNumber": "",
+          "nameOnCard": ""
+        }
+      }
+    },
+    {
+      "id": 6,
+      "userInfo": {
+        "id": 1,
+        "email": "a@a.com",
+        "firstName": "a",
+        "lastName": "a",
+        "phone": "8888888888",
+        "arrivalTime": "03:00 PM (15:00)",
+        "requests": ""
+      },
+      "date": {
+        "startDay": 1658898000000,
+        "endDay": 1659243540000
+      },
+      "nights": 1,
+      "options": [
+        {
+          "adult": 3,
+          "children": 0,
+          "id": "acbb9492-18d8-4fda-98c1-a01a7efcfd64",
+          "typeRoomId": 3,
+          "typeRoom": "Garden Superior",
+          "roomName": "GS04",
+          "roomPrice": 2149000,
+          "status": "Checked-in"
+        }
+      ],
+      "payment": {
+        "method": "",
+        "payInfo": {
+          "cardNumber": "",
+          "nameOnCard": ""
+        }
+      }
+    },
+    {
+      "id": 7,
+      "userInfo": {
+        "id": 2,
+        "email": "b@b.com",
+        "firstName": "b",
+        "lastName": "b",
+        "phone": "9999999999",
+        "arrivalTime": "03:00 PM (15:00)",
+        "requests": ""
+      },
+      "date": {
+        "startDay": 1661144400000,
+        "endDay": 1661662740000
+      },
+      "nights": 12,
+      "options": [
+        {
+          "id": "cb238eae-555e-4e68-9a1d-38c33aa619da",
+          "adult": 2,
+          "children": 0,
+          "typeRoomId": 2,
+          "typeRoom": "Ocean Deluxe",
+          "roomName": "OD04",
+          "roomPrice": 1849000,
+          "status": "Checked-in"
+        },
+        {
+          "id": "c702f2ea-38b5-4e89-8714-2876c0b4c9a1",
+          "adult": 4,
+          "children": 2,
+          "typeRoomId": 5,
+          "typeRoom": "Beach Front Villas",
+          "roomName": "",
+          "roomPrice": 10249000,
+          "status": "Checked-out"
+        }
+      ],
+      "payment": {
+        "method": "",
+        "payInfo": {
+          "cardNumber": "",
+          "nameOnCard": ""
+        }
+      }
+    },
+    {
+      "id": 9,
+      "userInfo": {
+        "id": 1,
+        "email": "a@a.com",
+        "firstName": "a",
+        "lastName": "a",
+        "phone": "8888888888",
+        "arrivalTime": "03:00 PM (15:00)",
+        "requests": ""
+      },
+      "date": {
+        "startDay": 1657472400000,
+        "endDay": 1657558800000
+      },
+      "nights": 1,
+      "options": [
+        {
+          "adult": 2,
+          "children": 0,
+          "id": "7bf413fd-b280-430a-9ce4-23aa633a3c19",
+          "typeRoomId": 1,
+          "typeRoom": "Ocean Suite",
+          "roomName": "",
+          "roomPrice": 2475000,
+          "status": "Booked"
+        }
+      ],
+      "payment": {
+        "method": "",
+        "payInfo": {
+          "cardNumber": "",
+          "nameOnCard": ""
+        }
+      }
     }
   ]
 }
