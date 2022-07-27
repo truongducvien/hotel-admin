@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation, NavLink, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
-import { Space, Spin } from 'antd'
+import { Space, Spin } from 'antd' 
 
 import { updateRoomTypeInfo, deleteRoomType } from "../../../store/slices/roomSlice";
 
@@ -42,9 +42,6 @@ export default function EditPage () {
             break;
          case 'price':
             setRoomInfoChange({...roomInfoChange, price: value });
-            break;
-         case 'quantity':
-            setRoomInfoChange({...roomInfoChange, quantity: value });
             break;
          case 'maxPerson':
             setRoomInfoChange({...roomInfoChange, maxPerson: value });
@@ -90,16 +87,25 @@ export default function EditPage () {
          {...state, roomsList: newRoomsList}
       ))
       setIsSaved(false)
+      console.log('call function');
    }
 
    const addNewRoom = (newRoom) => {
       handleChange('newRoom', newRoom);
    }
 
+   // Update room quantity when roomsList changed:
+   useEffect(()=> {
+      if(roomInfoChange.roomsList){
+         setRoomInfoChange({...roomInfoChange, quantity: roomInfoChange.roomsList.length })
+      }
+   }, [roomInfoChange.roomsList])
+
    const handleSaveChange = () => {
-      roomDispatch(updateRoomTypeInfo(roomInfoChange))
+      roomDispatch(updateRoomTypeInfo(roomInfoChange));
       setIsSaved(true)
    }
+   
 
    const handleReset = () => {
       if (roomTypes){
@@ -121,7 +127,7 @@ export default function EditPage () {
       }
    }
 
-   window.onload = () => {setIsSaved(false)}
+   window.onload = () => {setIsSaved(true)}
 
    return (
       <>

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { API, API_URL } from "../../api/constAPI";
 
 const initialState = {
-   rooms: [],
+   rooms: [], 
    isLoading: false
 }
 
@@ -19,7 +19,7 @@ const roomSlice = createSlice({
       },
       fetchRoomDataFail(state, action){
          
-      },
+      }, 
       
       updateRoomTypeInfo ( state, action){
          const roomInfoChange = action.payload;
@@ -40,6 +40,9 @@ const roomSlice = createSlice({
       },
       addNewRoomType (state, action) {
          state.rooms = [...state.rooms, action.payload]
+      },
+      updateRoomsAction (state, action) {
+         state.rooms = action.payload;
       }
    }
 })
@@ -50,7 +53,9 @@ export const {
    fetchRoomDataFail,
    updateRoomTypeInfo,
    deleteRoomType,
-   addNewRoomType
+   addNewRoomType,
+   updateRooms,
+   updateRoomsAction
 } = roomSlice.actions;
 
 export const roomReducer = roomSlice.reducer;

@@ -4,9 +4,11 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import 'antd/dist/antd.css';
 
 import HomePage from './components/main-layout/HomePage';
-import RoomManagement from './components/shared-components/RoomManagement';
+import RoomManagement from './components/main-layout/rooms/RoomManagement';
 import EditPage from './components/main-layout/rooms/EditPage';
 import AddRoomPage from './components/main-layout/rooms/AddRoomPage';
+import BookingManagement from './components/main-layout/booking/BookingManagement';
+import UsersManagement from './components/main-layout/users/UsersManagement';
 
 
 function App() {
@@ -34,6 +36,9 @@ function App() {
               <Route path="/room_management/edit" element={<EditPage />} />
               <Route path="/room_management/new" element={<AddRoomPage />} />
 
+              <Route path="/users_management" element={<UsersManagement />} />
+              <Route path="/booking_management" element={<BookingManagement />} />
+              
             </Route>
           </Routes>
         </div>

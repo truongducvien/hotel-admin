@@ -5,9 +5,9 @@ import { Table, Space, Spin } from 'antd';
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import '../../style/RoomManagement.scss'
-import { columns } from './tableData';
-import { fetchRoomDataAction } from '../../store/slices/roomSlice'
+import '../../../style/RoomManagement.scss'
+import { columns } from '../../shared-components/tableData';
+import { fetchRoomDataAction } from '../../../store/slices/roomSlice'
 
 
 export default function RoomManagement () {
